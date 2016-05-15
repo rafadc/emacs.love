@@ -1,0 +1,117 @@
+#+AUTHOR:  Rafa de Castro
+#+TITLE:   Emacs.love
+#+EMAIL:   rafael@micubiculo.com
+#+LANGUAGE: en
+#+PROPERTY: header-args :tangle yes
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/skeleton.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/site.css" />
+#+HTML_HEAD: <link href='https://fonts.googleapis.com/css?family=Chivo' rel='stylesheet' type='text/css'>
+#+HTML_HEAD: <a href="https://github.com/rafadc/emacs.love"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
+#+HTML_HEAD: <script src="site.js"></script>
+#+OPTIONS: H:4 num:nil toc:t \n:nil @:t ::t |:t ^:{} -:t f:t *:t
+#+OPTIONS: skip:nil d:(HIDE) tags:not-in-toc
+#+TODO: SOMEDAY(s) TODO(t) INPROGRESS(i) WAITING(w@/!) NEEDSREVIEW(n@/!) | DONE(d)
+#+TODO: WAITING(w@/!) HOLD(h@/!) | CANCELLED(c@/!)
+#+TAGS: export(e) noexport(n)
+#+STARTUP: align fold nodlcheck lognotestate content
+#+HTML_LINK_HOME: http://emacs.love
+#+HTML_CONTAINER: div class="container"
+
+* Why Emacs?
+
+There was a time that when a programmer opened emacs or vim everyone in the room said: "why don't you go to a better editor? why don't you use an IDE?". Fortunately, these days it is no longer like that. An emacs or vim user is no longer a weird beast but something more common.
+
+[[./images/emacs_logo.png]]
+
+Also when people see me using emacs they often ask me if I recommend using it. Well... my answer is often no. You will now be probably thinking why I'm taking the effort on writing this whole site if I'm not a huge emacs fan. Let me explain: I am an emacs fan. Anyway I know emacs' path is not for everyone. Some people feel no joy at all with it and I don't want to be the
+
+** But am I going to become a real coder with this?
+
+You are going to become... an emacs user. That is it. Bragging about a text editor feels really weird to me to be honest. Unfortunately that is quite common. Have fun in what you do and become better at it. Those are my two cents on the subject.
+
+** Is this another "Learn emacs in 2 weeks" course?
+
+God, no. Using emacs is a long term investment. I've been using emacs for some years now and I feel like a beginner still. The learning curve is steep. Really steep and sometimes daunting. Do not be scare anyway since in the long run it is totally worth it. It can be a "Learn emacs in a lifetime" course.
+
+Even this whole site was written using emacs' org-mode. You'll see how later.
+
+One of the bad things of learning a complex text editor is that there will be a relatively long period of time where you will be less proficient with it than with your regular text editing system. Unfortunately I've not found a way to circumvent that. Emacs won't be showing its full power until you cross that gap. The prize is high anyway if you cross that line.
+
+** How is this site supposed to work?
+
+This site is first though as my personal notes on emacs even though I think that this format may be nice as some kind of wiki for this.
+
+Anyone feel free to pull request something here. Use the white ribbon at the top left of the site.
+
+** How is this site different than the documentation?
+
+The documentation is there and is absolutely awesome. The emacs tutorial is there and is absolutely awesome. This is just another approach. The one that worked for me in particular. It may or may not work for you. It is not meant to replace any of the documentation efforts done before. There are some turns in the approach that of course no official documentation should take.
+
+For example we will jump soon into installing packages. I want to try a different approach in using emacs that an official thing should not make. I won't be comprehensive since I don't want to overwhelm somebody with a huge amount of information.
+
+** Do I need to write lisp? Yuck!
+
+Emacs lisp may not be the best language ever but it gets the job done. It feels more scary than it really is. I suggest giving it a try.
+
+** Why not using emacs Prelude or Spacemacs?
+
+Those are beautiful sets of initial configuration. Anyway, for learning purposes I preferred to start with vanilla emacs. Anyway, after feeling comfortable with the basics feel free to move to one of emacs distributions.
+
+ - Emacs prelude: [[https://github.com/bbatsov/prelude]]
+ - Spacemacs: http://spacemacs.org/
+
+* First steps
+** Moving around
+
+Let's start moving the cursors and typing. Ok? It works. The first step for getting familiar with an editor is using it. Do not try to get all the shortcuts at the first attempt. It is too much to grasp. Let's get enough to be dangerous and then continue adding new tricks to your tool belt.
+
+| C-g   | Quit |
+
+This is the first thing to learn as a beginner. It gets you out of trouble. If you are lost or you have started something and you don't know where you are it gets you back to a normal situation. One C-g and you are back to solid land again.
+
+| C-x s | Save |
+| C-x c | Close emacs |
+
+With those two combos you will save and quit. These three combinations make enough for you to start using emacs as your editor. The more you use it the more familiar you will be with it and the easier it will be to learn it.
+
+Emacs is amazingly enormously extensible. If you don't feel comfortable with something in it you can, for sure, adapt it to you. Probably that is something I like about emacs. It doesn't make you adapt to it but it adapts to you.
+
+** Emacs initialization process
+
+What happens when you type "emacs" in your console? After some time we have our emacs fired up and ready to roll but a lot of things have happened in the meantime.
+
+Emacs first looks for ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el files. I often recommend to use only the latter so we can keep our .emacs.d folder versioned under git or another VCS.
+
+** Customizing scratch Buffer :noexport:
+** Installing packages :noexport:
+
+** Setting environment :noexport:
+
+
+** Does emacs have a package system? :noexport:
+
+Yes. Embedded. Anyway we will start by using a small layer over it.
+
+** Let's make emacs less angry at you :noexport:
+
+We will start using our newly acquired knowledge making emacs a bit less hard to use. This was key for me as a beginner.
+
+*** Emacs help
+
+Using emacs help is amazing. We will get familiar with some functions in the help to aid us to avoid darkness.
+
+*** helm-M-x
+
+
+
+* The beautiful org-mode :noexport:
+
+** Documenting your configuration with org-mode
+** How this book is written?
+
+With emacs of course. You can fork it in our Github repository and edit the index.org file to change the contents or the site.css to change the style.
+
+* Emacs as a daemon :noexport:

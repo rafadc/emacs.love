@@ -1,0 +1,28 @@
+body {
+    font-family: 'Chivo', sans-serif;
+}
+
+h1, #postamble, #org-div-home-and-up {
+    background: #7F5AB6;
+    color: white;
+}
+
+h1 {
+    border-bottom: 5px solid white;
+}
+
+#postamble a, #postamble a:hover, #postamble a:visited {
+    color: white;
+}
+
+#org-div-home-and-up a, #org-div-home-and-up a:hover, #org-div-home-and-up a:visited {
+    color: white;
+}
+
+div#content {
+    background: #F2F0E4;
+}
+
+a, a:hover, a:visited {
+    color: black;
+}

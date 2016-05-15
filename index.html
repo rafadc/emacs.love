@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Emacs.love</title>
+<!-- 2016-05-15 Sun 10:05 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Rafa de Castro" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/skeleton.css" />
+<link rel="stylesheet" type="text/css" href="css/site.css" />
+<link href='https://fonts.googleapis.com/css?family=Chivo' rel='stylesheet' type='text/css'>
+<a href="https://github.com/rafadc/emacs.love"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
+<script src="site.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="http://emacs.love"> HOME </a>
+</div><div id="content">
+<h1 class="title">Emacs.love</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Why Emacs?</a>
+<ul>
+<li><a href="#sec-1-1">But am I going to become a real coder with this?</a></li>
+<li><a href="#sec-1-2">Is this another "Learn emacs in 2 weeks" course?</a></li>
+<li><a href="#sec-1-3">How is this site supposed to work?</a></li>
+<li><a href="#sec-1-4">How is this site different than the documentation?</a></li>
+<li><a href="#sec-1-5">Do I need to write lisp? Yuck!</a></li>
+<li><a href="#sec-1-6">Why not using emacs Prelude or Spacemacs?</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">First steps</a>
+<ul>
+<li><a href="#sec-2-1">Moving around</a></li>
+<li><a href="#sec-2-2">Emacs initialization process</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="container" id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Why Emacs?</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+There was a time that when a programmer opened emacs or vim everyone in the room said: "why don't you go to a better editor? why don't you use an IDE?". Fortunately, these days it is no longer like that. An emacs or vim user is no longer a weird beast but something more common.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/emacs_logo.png" alt="emacs_logo.png" />
+</p>
+</div>
+
+<p>
+Also when people see me using emacs they often ask me if I recommend using it. Well&#x2026; my answer is often no. You will now be probably thinking why I'm taking the effort on writing this whole site if I'm not a huge emacs fan. Let me explain: I am an emacs fan. Anyway I know emacs' path is not for everyone. Some people feel no joy at all with it and I don't want to be the
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">But am I going to become a real coder with this?</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+You are going to become&#x2026; an emacs user. That is it. Bragging about a text editor feels really weird to me to be honest. Unfortunately that is quite common. Have fun in what you do and become better at it. Those are my two cents on the subject.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Is this another "Learn emacs in 2 weeks" course?</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+God, no. Using emacs is a long term investment. I've been using emacs for some years now and I feel like a beginner still. The learning curve is steep. Really steep and sometimes daunting. Do not be scare anyway since in the long run it is totally worth it. It can be a "Learn emacs in a lifetime" course.
+</p>
+
+<p>
+Even this whole site was written using emacs' org-mode. You'll see how later.
+</p>
+
+<p>
+One of the bad things of learning a complex text editor is that there will be a relatively long period of time where you will be less proficient with it than with your regular text editing system. Unfortunately I've not found a way to circumvent that. Emacs won't be showing its full power until you cross that gap. The prize is high anyway if you cross that line.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">How is this site supposed to work?</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+This site is first though as my personal notes on emacs even though I think that this format may be nice as some kind of wiki for this.
+</p>
+
+<p>
+Anyone feel free to pull request something here. Use the white ribbon at the top left of the site.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">How is this site different than the documentation?</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+The documentation is there and is absolutely awesome. The emacs tutorial is there and is absolutely awesome. This is just another approach. The one that worked for me in particular. It may or may not work for you. It is not meant to replace any of the documentation efforts done before. There are some turns in the approach that of course no official documentation should take.
+</p>
+
+<p>
+For example we will jump soon into installing packages. I want to try a different approach in using emacs that an official thing should not make. I won't be comprehensive since I don't want to overwhelm somebody with a huge amount of information.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Do I need to write lisp? Yuck!</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Emacs lisp may not be the best language ever but it gets the job done. It feels more scary than it really is. I suggest giving it a try.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Why not using emacs Prelude or Spacemacs?</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Those are beautiful sets of initial configuration. Anyway, for learning purposes I preferred to start with vanilla emacs. Anyway, after feeling comfortable with the basics feel free to move to one of emacs distributions.
+</p>
+
+<ul class="org-ul">
+<li>Emacs prelude: <a href="https://github.com/bbatsov/prelude">https://github.com/bbatsov/prelude</a>
+</li>
+<li>Spacemacs: <a href="http://spacemacs.org/">http://spacemacs.org/</a>
+</li>
+</ul>
+</div>
+</div>
+</div class="container">
+
+<div class="container" id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">First steps</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Moving around</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Let's start moving the cursors and typing. Ok? It works. The first step for getting familiar with an editor is using it. Do not try to get all the shortcuts at the first attempt. It is too much to grasp. Let's get enough to be dangerous and then continue adding new tricks to your tool belt.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">C-g</td>
+<td class="left">Quit</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+This is the first thing to learn as a beginner. It gets you out of trouble. If you are lost or you have started something and you don't know where you are it gets you back to a normal situation. One C-g and you are back to solid land again.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">C-x s</td>
+<td class="left">Save</td>
+</tr>
+
+<tr>
+<td class="left">C-x c</td>
+<td class="left">Close emacs</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+With those two combos you will save and quit. These three combinations make enough for you to start using emacs as your editor. The more you use it the more familiar you will be with it and the easier it will be to learn it.
+</p>
+
+<p>
+Emacs is amazingly enormously extensible. If you don't feel comfortable with something in it you can, for sure, adapt it to you. Probably that is something I like about emacs. It doesn't make you adapt to it but it adapts to you.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Emacs initialization process</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+What happens when you type "emacs" in your console? After some time we have our emacs fired up and ready to roll but a lot of things have happened in the meantime.
+</p>
+
+<p>
+Emacs first looks for ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el files. I often recommend to use only the latter so we can keep our .emacs.d folder versioned under git or another VCS.
+</p>
+</div>
+</div>
+</div class="container">
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Rafa de Castro</p>
+<p class="date">Created: 2016-05-15 Sun 10:05</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
