@@ -26,7 +26,9 @@ There was a time that when a programmer opened emacs or vim everyone in the room
 
 [[./images/emacs_logo.png]]
 
-Also when people see me using emacs they often ask me if I recommend using it. Well... my answer is often no. You will now be probably thinking why I'm taking the effort on writing this whole site if I'm not a huge emacs fan. Let me explain: I am an emacs fan. Anyway I know emacs' path is not for everyone. Some people feel no joy at all with it and I don't want to be the
+Also when people see me using emacs they often ask me if I recommend using it. Well... my answer is often no. You will now be probably thinking why I'm taking the effort on writing this whole site if I'm not a huge emacs fan. Let me explain: I am an emacs fan. Anyway I know emacs' path is not for everyone. Some people feel no joy at all with it and I don't want to be the one causing that pain.
+
+My advice is just to test it. To invest some time in trying and staying if you feel comfortable.
 
 ** But am I going to become a real coder with this?
 
@@ -44,7 +46,11 @@ One of the bad things of learning a complex text editor is that there will be a 
 
 This site is first though as my personal notes on emacs even though I think that this format may be nice as some kind of wiki for this.
 
-Anyone feel free to pull request something here. Use the white ribbon at the top left of the site.
+At least the first steps section should be read in advance. Then all the next sections can probably be read independently.
+
+** Contributing
+
+Anyone feel free to open an issue or even better to pull request something here. Use the white ribbon at the top left of the site. Probably there are a ton of typos and things that can be explained better. Also, English is not my first language so please, keep that in mind ;).
 
 ** How is this site different than the documentation?
 
