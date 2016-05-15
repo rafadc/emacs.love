@@ -56,6 +56,10 @@ For example we will jump soon into installing packages. I want to try a differen
 
 Emacs lisp may not be the best language ever but it gets the job done. It feels more scary than it really is. I suggest giving it a try.
 
+[[./images/lisp_warning.png]]
+
+Of course you can use emacs with a bundle and mostly avoid lisp but in my humble opinion this is not recommended. Embrace it. It will pay in the long run.
+
 ** Why not using emacs Prelude or Spacemacs?
 
 Those are beautiful sets of initial configuration. Anyway, for learning purposes I preferred to start with vanilla emacs. Anyway, after feeling comfortable with the basics feel free to move to one of emacs distributions.
@@ -68,28 +72,78 @@ Those are beautiful sets of initial configuration. Anyway, for learning purposes
 
 Let's start moving the cursors and typing. Ok? It works. The first step for getting familiar with an editor is using it. Do not try to get all the shortcuts at the first attempt. It is too much to grasp. Let's get enough to be dangerous and then continue adding new tricks to your tool belt.
 
-| C-g   | Quit |
+| C-g | Quit |
 
 This is the first thing to learn as a beginner. It gets you out of trouble. If you are lost or you have started something and you don't know where you are it gets you back to a normal situation. One C-g and you are back to solid land again.
 
-| C-x s | Save |
+| C-x s | Save        |
 | C-x c | Close emacs |
 
 With those two combos you will save and quit. These three combinations make enough for you to start using emacs as your editor. The more you use it the more familiar you will be with it and the easier it will be to learn it.
 
 Emacs is amazingly enormously extensible. If you don't feel comfortable with something in it you can, for sure, adapt it to you. Probably that is something I like about emacs. It doesn't make you adapt to it but it adapts to you.
 
-** Emacs initialization process
+** Stating emacs
+
+If we start emacs from the command line typing just "emacs" you will see an emacs splash screen with some interesting links. For a while we will just assume that we will start emacs typing "emacs <filename>" and exit them after we finished with the file. That is not the usual way of using emacs but it can be enough for some time. We will come back to this later.
+
+** Evaluation of lisp code
+
+We will start with the most simple of the configurations. 99% of people I know that use emacs disable menu and icon bar. Open any file and type the following.
+
+#+BEGIN_SRC emacs-lisp
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+#+END_SRC
+
+We are going to learn one way of evaluating lisp code.
+
+| C-x C-e | evaluate-last-sexp |
+
+Place the cursor after the first ")" and press our newly learned combo. You should see the menubar go away. But hey! Aren't we changing a config file. Did we reload the config somehow? No, we didn't. We just evaluated a lisp expression. We must think of emacs as a big program running and whose code can be evaluated at any moment. Indeed we can think of emacs as a big lisp interpreter that happens to have a text editor.
+
+This means that we can evaluate code to check how the changes are going to look and finally save it to the file if we want to persist it for future use. Of course evaluating lisp code in you editor can be super useful not only for config files but let's stay at this point at the moment. Just remember that you can evaluate expressions anywhere in any kind of file you are opening emacs with.
+
+What we are evaluating is a s-expression. What is that? An s-exp takes usually the form of
+
+#+BEGIN_SRC emacs-lisp
+(function_name argument1 argument2 ...)
+#+END_SRC
+
+So we can say that it is an expression between parentheses that starts with a function name and can have zero or more arguments afterwards.
+
+Let's play with this a little bit. Type the following in any emacs buffer.
+
+#+BEGIN_SRC emacs-lisp
+(upcase "emacs")
+#+END_SRC
+
+Then place the cursor after the ")" and type C-x C-e. You should see EMACS as response at the bottom of your screen.
+
+** Our first configuration changes
+
+With all these newly acquired knowledge let's go back and try to change some config values for emacs. Let's go back to our previous snippet
+
+#+BEGIN_SRC emacs-lisp
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+#+END_SRC
+
+Evaluate those two s-expressions. You should have no menu now and no toolbar. If you don't save anything and exit and open emacs again the changes will not be persisted. How do we fix that?
 
 What happens when you type "emacs" in your console? After some time we have our emacs fired up and ready to roll but a lot of things have happened in the meantime.
 
 Emacs first looks for ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el files. I often recommend to use only the latter so we can keep our .emacs.d folder versioned under git or another VCS.
 
-** Customizing scratch Buffer :noexport:
+We can edit our init file so we can add whatever code we need to be executed at startup. Try and save those two lines and run emacs again. You no longer should have nor menubar nor tool bar.
+
+All the config changes we make to emacs will be made in this file. Doesn't this make this file messy? Well... yes and no. Let's say that this will become messy if we are not careful ;). We will see ways of organizing our config file. Anyway we now have something to customize emacs to our needs. This is where the real fun begins.
+
 ** Installing packages :noexport:
 
 ** Setting environment :noexport:
 
+** Buffers, files, windows.... :noexport:
 
 ** Does emacs have a package system? :noexport:
 
@@ -113,5 +167,18 @@ Using emacs help is amazing. We will get familiar with some functions in the hel
 ** How this book is written?
 
 With emacs of course. You can fork it in our Github repository and edit the index.org file to change the contents or the site.css to change the style.
+
+The index.org file contains all the text of the tutorial.
+
+I have set up a pre-commit hook in git so I don't forget to upload the latest version of the html to the repository when pushing.
+
+#+BEGIN_SRC bash
+#!/bin/sh
+emacs -batch index.org --eval="(org-html-export-to-html)"
+git add index.html
+rm index.html\~
+#+END_SRC
+
+There often are some unfinished sections in the org file. We just tag them with :noexport: and they will not be added to the HTML output.
 
 * Emacs as a daemon :noexport:
