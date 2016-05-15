@@ -83,7 +83,7 @@ With those two combos you will save and quit. These three combinations make enou
 
 Emacs is amazingly enormously extensible. If you don't feel comfortable with something in it you can, for sure, adapt it to you. Probably that is something I like about emacs. It doesn't make you adapt to it but it adapts to you.
 
-** Stating emacs
+** Starting emacs
 
 If we start emacs from the command line typing just "emacs" you will see an emacs splash screen with some interesting links. For a while we will just assume that we will start emacs typing "emacs <filename>" and exit them after we finished with the file. That is not the usual way of using emacs but it can be enough for some time. We will come back to this later.
 
