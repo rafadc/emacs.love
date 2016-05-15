@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacs.love</title>
-<!-- 2016-05-15 Sun 10:07 -->
+<!-- 2016-05-15 Sun 11:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Rafa de Castro" />
@@ -165,7 +165,9 @@ for the JavaScript code in this tag.
 <li><a href="#sec-2">First steps</a>
 <ul>
 <li><a href="#sec-2-1">Moving around</a></li>
-<li><a href="#sec-2-2">Emacs initialization process</a></li>
+<li><a href="#sec-2-2">Stating emacs</a></li>
+<li><a href="#sec-2-3">Evaluation of lisp code</a></li>
+<li><a href="#sec-2-4">Our first configuration changes</a></li>
 </ul>
 </li>
 </ul>
@@ -247,6 +249,16 @@ For example we will jump soon into installing packages. I want to try a differen
 <div class="outline-text-3" id="text-1-5">
 <p>
 Emacs lisp may not be the best language ever but it gets the job done. It feels more scary than it really is. I suggest giving it a try.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lisp_warning.png" alt="lisp_warning.png" />
+</p>
+</div>
+
+<p>
+Of course you can use emacs with a bundle and mostly avoid lisp but in my humble opinion this is not recommended. Embrace it. It will pay in the long run.
 </p>
 </div>
 </div>
@@ -330,8 +342,104 @@ Emacs is amazingly enormously extensible. If you don't feel comfortable with som
 </div>
 
 <div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Emacs initialization process</h3>
+<h3 id="sec-2-2">Stating emacs</h3>
 <div class="outline-text-3" id="text-2-2">
+<p>
+If we start emacs from the command line typing just "emacs" you will see an emacs splash screen with some interesting links. For a while we will just assume that we will start emacs typing "emacs &lt;filename&gt;" and exit them after we finished with the file. That is not the usual way of using emacs but it can be enough for some time. We will come back to this later.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Evaluation of lisp code</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+We will start with the most simple of the configurations. 99% of people I know that use emacs disable menu and icon bar. Open any file and type the following.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(menu-bar-mode -1)
+(tool-bar-mode -1)
+</pre>
+</div>
+
+<p>
+We are going to learn one way of evaluating lisp code.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">C-x C-e</td>
+<td class="left">evaluate-last-sexp</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Place the cursor after the first ")" and press our newly learned combo. You should see the menubar go away. But hey! Aren't we changing a config file. Did we reload the config somehow? No, we didn't. We just evaluated a lisp expression. We must think of emacs as a big program running and whose code can be evaluated at any moment. Indeed we can think of emacs as a big lisp interpreter that happens to have a text editor.
+</p>
+
+<p>
+This means that we can evaluate code to check how the changes are going to look and finally save it to the file if we want to persist it for future use. Of course evaluating lisp code in you editor can be super useful not only for config files but let's stay at this point at the moment. Just remember that you can evaluate expressions anywhere in any kind of file you are opening emacs with.
+</p>
+
+<p>
+What we are evaluating is a s-expression. What is that? An s-exp takes usually the form of
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(function_name argument1 argument2 ...)
+</pre>
+</div>
+
+<p>
+So we can say that it is an expression between parentheses that starts with a function name and can have zero or more arguments afterwards.
+</p>
+
+<p>
+Let's play with this a little bit. Type the following in any emacs buffer.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(upcase "emacs")
+</pre>
+</div>
+
+<p>
+Then place the cursor after the ")" and type C-x C-e. You should see EMACS as response at the bottom of your screen.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Our first configuration changes</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+With all these newly acquired knowledge let's go back and try to change some config values for emacs. Let's go back to our previous snippet
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(menu-bar-mode -1)
+(tool-bar-mode -1)
+</pre>
+</div>
+
+<p>
+Evaluate those two s-expressions. You should have no menu now and no toolbar. If you don't save anything and exit and open emacs again the changes will not be persisted. How do we fix that?
+</p>
+
 <p>
 What happens when you type "emacs" in your console? After some time we have our emacs fired up and ready to roll but a lot of things have happened in the meantime.
 </p>
@@ -339,13 +447,21 @@ What happens when you type "emacs" in your console? After some time we have our 
 <p>
 Emacs first looks for ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el files. I often recommend to use only the latter so we can keep our .emacs.d folder versioned under git or another VCS.
 </p>
+
+<p>
+We can edit our init file so we can add whatever code we need to be executed at startup. Try and save those two lines and run emacs again. You no longer should have nor menubar nor tool bar.
+</p>
+
+<p>
+All the config changes we make to emacs will be made in this file. Doesn't this make this file messy? Well&#x2026; yes and no. Let's say that this will become messy if we are not careful ;). We will see ways of organizing our config file. Anyway we now have something to customize emacs to our needs. This is where the real fun begins.
+</p>
 </div>
 </div>
 </div class="container">
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Rafa de Castro</p>
-<p class="date">Created: 2016-05-15 Sun 10:07</p>
+<p class="date">Created: 2016-05-15 Sun 11:58</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
