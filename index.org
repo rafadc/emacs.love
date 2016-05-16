@@ -147,6 +147,10 @@ All the config changes we make to emacs will be made in this file. Doesn't this 
 
 ** Installing packages :noexport:
 
+As an emacs novice the most obvious way to enhance emacs documentation is to use external packages. One nice way of organizing packages is with [[https://github.com/jwiegley/use-package][use-package]]. This will give us some nice features and will help us to keep our config file a little bit more organized.
+
+Ironically we need to install it using the embedded package manager. Starting from that moment we will try to install all dependedncies using use-package.
+
 ** Setting environment :noexport:
 
 ** Buffers, files, windows.... :noexport:
