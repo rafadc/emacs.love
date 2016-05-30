@@ -68,10 +68,14 @@ Of course you can use emacs with a bundle and mostly avoid lisp but in my humble
 
 ** Why not using emacs Prelude or Spacemacs?
 
-Those are beautiful sets of initial configuration. Anyway, for learning purposes I preferred to start with vanilla emacs. Anyway, after feeling comfortable with the basics feel free to move to one of emacs distributions.
+Those are beautiful sets of initial configuration. Anyway, for learning purposes I preferred to start with vanilla emacs.  Anyway, after feeling comfortable with the basics feel free to move to one of these great emacs distributions.
 
  - Emacs prelude: [[https://github.com/bbatsov/prelude]]
  - Spacemacs: http://spacemacs.org/
+
+For teaching purposes it was easier to start this way since I did not have deal with the extra layer of features these great configs give. I use them from time to time to gather ideas.
+
+Feel free to have one setup for experimenting and learning a bit and one for your daily job.
 
 * First steps
 ** Moving around
