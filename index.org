@@ -80,7 +80,7 @@ Feel free to have one setup for experimenting and learning a bit and one for you
 * First steps
 ** Moving around
 
-Let's start moving the cursors and typing. Ok? It works. The first step for getting familiar with an editor is using it. Do not try to get all the shortcuts at the first attempt. It is too much to grasp. Let's get enough to be dangerous and then continue adding new tricks to your tool belt.
+Let's start moving the cursors and typing. Ok? It works. The first step for getting familiar with an editor is using it. Do not try to get all the shortcuts at the first attempt. It is too much to grasp. Let's get enough knowledge to be dangerous and then continue adding new tricks to your tool belt.
 
 | C-g | Quit |
 
@@ -95,7 +95,7 @@ Emacs is amazingly enormously extensible. If you don't feel comfortable with som
 
 ** Starting emacs
 
-If we start emacs from the command line typing just "emacs" you will see an emacs splash screen with some interesting links. For a while we will just assume that we will start emacs typing "emacs <filename>" and exit them after we finished with the file. That is not the usual way of using emacs but it can be enough for some time. We will come back to this later.
+If we start emacs from the command line typing just "emacs" you will see an emacs splash screen with some interesting links. For a while we will just assume that we will start emacs typing "emacs <filename>" and exit them after we finished with the file. That is not the usual way of using emacs but it can be enough for some time. Probably it will feel a bit slow now but keep calm, we will come back to this later.
 
 ** Evaluation of lisp code
 
